@@ -1,0 +1,618 @@
+{
+  "version": 2,
+  "fallback": "Unsorted",
+  "notes": [
+    "Starter taxonomy. Replace these categories with your own; nothing here is",
+    "required. Rule scoring: tag (folder name) 6, folder 4, domain 4, title",
+    "keyword 3, description keyword 1, body keyword 1. Keyword lists are a cheap",
+    "first pass; with categorize.llm.provider set, a model makes the real call.",
+    "Folder names in Instapaper count as tags, so a folder called 'Tech' already",
+    "steers articles toward a category tagged 'tech'."
+  ],
+  "categories": [
+    {
+      "name": "Technology",
+      "slug": "technology",
+      "domains": [
+        "arstechnica.com",
+        "theverge.com",
+        "wired.com",
+        "technologyreview.com"
+      ],
+      "tags": [
+        "tech",
+        "technology"
+      ],
+      "keywords": [
+        "technology",
+        "internet",
+        "silicon valley",
+        "startup",
+        "platform",
+        "gadget",
+        "hardware",
+        "chip",
+        "semiconductor",
+        "cloud",
+        "privacy",
+        "surveillance"
+      ],
+      "body_keywords": [
+        "the company said",
+        "product launch"
+      ]
+    },
+    {
+      "name": "Software & Engineering",
+      "slug": "software-engineering",
+      "domains": [
+        "github.com",
+        "stackoverflow.com",
+        "lwn.net",
+        "martinfowler.com"
+      ],
+      "tags": [
+        "engineering",
+        "programming",
+        "code",
+        "software"
+      ],
+      "keywords": [
+        "programming",
+        "software",
+        "compiler",
+        "debugging",
+        "kernel",
+        "linux",
+        "database",
+        "distributed system",
+        "open source",
+        "api",
+        "refactor",
+        "codebase",
+        "concurrency",
+        "kubernetes",
+        "unix",
+        "typescript"
+      ],
+      "body_keywords": [
+        "source code",
+        "pull request",
+        "stack trace"
+      ]
+    },
+    {
+      "name": "AI & Machine Learning",
+      "slug": "ai-machine-learning",
+      "domains": [
+        "openai.com",
+        "anthropic.com",
+        "deepmind.com",
+        "huggingface.co",
+        "arxiv.org"
+      ],
+      "tags": [
+        "ai",
+        "machine learning"
+      ],
+      "keywords": [
+        "artificial intelligence",
+        "machine learning",
+        "neural network",
+        "large language model",
+        "llm",
+        "transformer",
+        "deep learning",
+        "agi",
+        "alignment",
+        "diffusion model",
+        "reinforcement learning",
+        "inference"
+      ],
+      "body_keywords": [
+        "training run",
+        "model weights",
+        "fine-tun"
+      ]
+    },
+    {
+      "name": "Science",
+      "slug": "science",
+      "domains": [
+        "nature.com",
+        "science.org",
+        "scientificamerican.com",
+        "quantamagazine.org",
+        "newscientist.com",
+        "phys.org"
+      ],
+      "tags": [
+        "science"
+      ],
+      "keywords": [
+        "study",
+        "research",
+        "physics",
+        "biology",
+        "chemistry",
+        "astronomy",
+        "neuroscience",
+        "genetics",
+        "evolution",
+        "climate",
+        "quantum",
+        "particle",
+        "cosmology",
+        "mathematics",
+        "statistics",
+        "experiment",
+        "peer review"
+      ],
+      "body_keywords": [
+        "researchers found",
+        "the study",
+        "hypothesis"
+      ]
+    },
+    {
+      "name": "Health & Medicine",
+      "slug": "health-medicine",
+      "domains": [
+        "nih.gov",
+        "cdc.gov",
+        "who.int",
+        "statnews.com",
+        "mayoclinic.org"
+      ],
+      "tags": [
+        "health",
+        "medicine"
+      ],
+      "keywords": [
+        "health",
+        "medicine",
+        "disease",
+        "patient",
+        "doctor",
+        "hospital",
+        "vaccine",
+        "cancer",
+        "diet",
+        "nutrition",
+        "exercise",
+        "sleep",
+        "mental health",
+        "therapy",
+        "clinical trial",
+        "epidemic",
+        "public health"
+      ],
+      "body_keywords": [
+        "patients",
+        "clinical",
+        "symptoms"
+      ]
+    },
+    {
+      "name": "Business & Economics",
+      "slug": "business-economics",
+      "domains": [
+        "ft.com",
+        "bloomberg.com",
+        "economist.com",
+        "wsj.com",
+        "hbr.org"
+      ],
+      "tags": [
+        "business",
+        "economics",
+        "startup",
+        "finance"
+      ],
+      "keywords": [
+        "business",
+        "economy",
+        "economics",
+        "market",
+        "inflation",
+        "recession",
+        "employment",
+        "trade",
+        "tariff",
+        "supply chain",
+        "revenue",
+        "profit",
+        "startup",
+        "venture capital",
+        "ipo",
+        "acquisition",
+        "competition"
+      ],
+      "body_keywords": [
+        "the company",
+        "quarterly",
+        "billion"
+      ]
+    },
+    {
+      "name": "Money & Investing",
+      "slug": "money-investing",
+      "domains": [
+        "morningstar.com",
+        "bogleheads.org",
+        "investopedia.com"
+      ],
+      "tags": [
+        "investing",
+        "money",
+        "finance"
+      ],
+      "keywords": [
+        "investing",
+        "investor",
+        "stock",
+        "bond",
+        "index fund",
+        "portfolio",
+        "retirement",
+        "savings",
+        "interest rate",
+        "dividend",
+        "etf",
+        "asset",
+        "valuation",
+        "returns",
+        "personal finance"
+      ],
+      "body_keywords": [
+        "portfolio",
+        "annual return",
+        "basis point"
+      ]
+    },
+    {
+      "name": "Product & Design",
+      "slug": "product-design",
+      "domains": [
+        "nngroup.com",
+        "smashingmagazine.com",
+        "alistapart.com",
+        "dribbble.com"
+      ],
+      "tags": [
+        "design",
+        "product",
+        "ux"
+      ],
+      "keywords": [
+        "design",
+        "user experience",
+        "ux",
+        "usability",
+        "interface",
+        "typography",
+        "product management",
+        "roadmap",
+        "user research",
+        "accessibility",
+        "prototype",
+        "design system",
+        "wireframe"
+      ],
+      "body_keywords": [
+        "users",
+        "the interface",
+        "designers"
+      ]
+    },
+    {
+      "name": "Policy & Politics",
+      "slug": "policy-politics",
+      "domains": [
+        "politico.com",
+        "thehill.com",
+        "foreignaffairs.com",
+        "gov.uk"
+      ],
+      "tags": [
+        "politics",
+        "policy"
+      ],
+      "keywords": [
+        "politics",
+        "political",
+        "election",
+        "government",
+        "policy",
+        "senate",
+        "congress",
+        "parliament",
+        "legislation",
+        "regulation",
+        "democracy",
+        "campaign",
+        "vote",
+        "diplomacy",
+        "geopolitics",
+        "immigration"
+      ],
+      "body_keywords": [
+        "voters",
+        "the administration",
+        "legislation"
+      ]
+    },
+    {
+      "name": "History",
+      "slug": "history",
+      "domains": [
+        "historytoday.com",
+        "smithsonianmag.com",
+        "jstor.org"
+      ],
+      "tags": [
+        "history"
+      ],
+      "keywords": [
+        "history",
+        "historical",
+        "century",
+        "empire",
+        "war",
+        "revolution",
+        "ancient",
+        "medieval",
+        "archive",
+        "civilization",
+        "dynasty",
+        "colonial"
+      ],
+      "body_keywords": [
+        "in 18",
+        "the war",
+        "historians"
+      ]
+    },
+    {
+      "name": "Culture & Society",
+      "slug": "culture-society",
+      "domains": [
+        "nytimes.com",
+        "theatlantic.com",
+        "newyorker.com",
+        "aeon.co"
+      ],
+      "tags": [
+        "culture",
+        "society"
+      ],
+      "keywords": [
+        "culture",
+        "society",
+        "social",
+        "inequality",
+        "gender",
+        "race",
+        "religion",
+        "family",
+        "education",
+        "community",
+        "generation",
+        "identity"
+      ],
+      "body_keywords": [
+        "society",
+        "people say",
+        "social media"
+      ]
+    },
+    {
+      "name": "Ideas & Essays",
+      "slug": "ideas-essays",
+      "domains": [
+        "aeon.co",
+        "noemamag.com",
+        "thepointmag.com",
+        "worksinprogress.co"
+      ],
+      "tags": [
+        "essays",
+        "ideas",
+        "philosophy"
+      ],
+      "keywords": [
+        "essay",
+        "philosophy",
+        "philosophical",
+        "ethics",
+        "moral",
+        "meaning",
+        "consciousness",
+        "epistemology",
+        "argument",
+        "long read",
+        "thesis",
+        "intellectual",
+        "liberalism",
+        "utopia"
+      ],
+      "body_keywords": [
+        "in this essay",
+        "the argument",
+        "we should"
+      ]
+    },
+    {
+      "name": "Books & Writing",
+      "slug": "books-writing",
+      "domains": [
+        "lithub.com",
+        "lrb.co.uk",
+        "nybooks.com",
+        "theparisreview.org"
+      ],
+      "tags": [
+        "books",
+        "writing",
+        "literature"
+      ],
+      "keywords": [
+        "book",
+        "novel",
+        "author",
+        "writer",
+        "writing",
+        "poetry",
+        "literary",
+        "fiction",
+        "memoir",
+        "publisher",
+        "editor",
+        "manuscript",
+        "prose"
+      ],
+      "body_keywords": [
+        "the book",
+        "the novel",
+        "the author"
+      ]
+    },
+    {
+      "name": "Film, TV & Music",
+      "slug": "film-tv-music",
+      "domains": [
+        "imdb.com",
+        "rogerebert.com",
+        "pitchfork.com",
+        "rollingstone.com"
+      ],
+      "tags": [
+        "film",
+        "music",
+        "tv"
+      ],
+      "keywords": [
+        "film",
+        "movie",
+        "cinema",
+        "director",
+        "actor",
+        "album",
+        "band",
+        "musician",
+        "song",
+        "television",
+        "series",
+        "soundtrack",
+        "documentary",
+        "screenplay",
+        "studio"
+      ],
+      "body_keywords": [
+        "the film",
+        "the album",
+        "on screen"
+      ]
+    },
+    {
+      "name": "Learning & Productivity",
+      "slug": "learning-productivity",
+      "domains": [
+        "fs.blog",
+        "lesswrong.com",
+        "nesslabs.com"
+      ],
+      "tags": [
+        "learning",
+        "productivity"
+      ],
+      "keywords": [
+        "learning",
+        "productivity",
+        "habit",
+        "focus",
+        "note-taking",
+        "memory",
+        "practice",
+        "routine",
+        "attention",
+        "procrastination",
+        "deep work",
+        "goal",
+        "skill"
+      ],
+      "body_keywords": [
+        "a habit",
+        "deep work",
+        "deliberate practice"
+      ]
+    },
+    {
+      "name": "Travel & Places",
+      "slug": "travel-places",
+      "domains": [
+        "lonelyplanet.com",
+        "atlasobscura.com",
+        "cntraveler.com"
+      ],
+      "tags": [
+        "travel"
+      ],
+      "keywords": [
+        "travel",
+        "trip",
+        "city",
+        "country",
+        "region",
+        "hotel",
+        "journey",
+        "landscape",
+        "abroad",
+        "tourist",
+        "backpacking",
+        "itinerary",
+        "flight"
+      ],
+      "body_keywords": [
+        "the city",
+        "the town",
+        "travellers"
+      ]
+    },
+    {
+      "name": "Making & Craft",
+      "slug": "making-craft",
+      "domains": [
+        "makezine.com",
+        "hackaday.com",
+        "instructables.com"
+      ],
+      "tags": [
+        "making",
+        "craft",
+        "diy"
+      ],
+      "keywords": [
+        "diy",
+        "craft",
+        "woodworking",
+        "sewing",
+        "knitting",
+        "pottery",
+        "workshop",
+        "maker",
+        "electronics",
+        "3d printing",
+        "repair",
+        "tool",
+        "handmade",
+        "garden"
+      ],
+      "body_keywords": [
+        "the workshop",
+        "build your own",
+        "hand tools"
+      ]
+    }
+  ]
+}

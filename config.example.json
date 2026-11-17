@@ -1,0 +1,53 @@
+{
+  "vault_path": "~/Documents/Obsidian/MyVault",
+  "notes_dir": "Instapaper",
+  "layout": "folders",
+  "to_read_dir": "To Read",
+  "archive_dir": "Archived",
+  "sections": [
+    "home",
+    "archive",
+    "folders"
+  ],
+  "fetch_article_text": true,
+  "fetch_highlights": false,
+  "include_images": true,
+  "page_size": 500,
+  "request_delay": 0.4,
+  "workers": 6,
+  "chunk_size": 250,
+  "timeout": 120,
+  "parse_timeout": 20,
+  "filename": {
+    "template": "{title}",
+    "max_length": 110
+  },
+  "frontmatter": {
+    "include_description": true,
+    "include_instapaper_url": true,
+    "extra": {}
+  },
+  "categorize": {
+    "mode": "llm",
+    "categories_file": "categories.json",
+    "fallback": "Unsorted",
+    "llm": {
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "batch_size": 25,
+      "timeout": 180,
+      "scope": "all",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "api_key_file": "~/.config/instapaper/llm-key",
+      "temperature": 0.1,
+      "max_retries": 4,
+      "workers": 6
+    }
+  },
+  "state_dir": "~/.local/state/instapaper-sync",
+  "cache_dir": "~/.cache/instapaper-sync",
+  "token_file": "~/.config/instapaper/token",
+  "token_env": "INSTAPAPER_TOKEN",
+  "delete_mode": "trash",
+  "index_note": "Instapaper Index"
+}
