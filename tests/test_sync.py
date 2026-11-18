@@ -349,6 +349,27 @@ class SyncTests(unittest.TestCase):
         self.assertTrue(os.path.exists(self.note_path("To Read", "Same title.md")))
         self.assertTrue(os.path.exists(self.note_path("To Read", "Same title (2).md")))
 
+    def test_unreadable_existing_note_is_not_overwritten(self):
+        # iCloud occasionally refuses a read. The owner of the file is then
+        # unknown, and the sync must not assume the file is its own.
+        occupied = self.note_path("To Read", "Ashkenazi genetics.md")
+        os.makedirs(os.path.dirname(occupied), exist_ok=True)
+        with open(occupied, "w", encoding="utf-8") as handle:
+            handle.write('---\ninstapaper_id: 900\ntitle: "Ashkenazi genetics"\n---\n\nold body\n')
+        original = slurp(occupied)
+
+        client = FakeClient([bookmark(901, "Ashkenazi genetics")])
+        sync = Sync(self.config, client, logger=lambda *_: None)
+        real_read_note = notes.read_note
+        notes.read_note = lambda *args, **kwargs: None
+        try:
+            sync.run()
+        finally:
+            notes.read_note = real_read_note
+
+        self.assertEqual(slurp(occupied), original)
+        self.assertTrue(os.path.exists(self.note_path("To Read", "Ashkenazi genetics (901).md")))
+
     def test_refresh_refetches_article_text(self):
         client = FakeClient([bookmark(1, "A piece")], parsed={1: make_parse("A piece", "<p>Body</p>")})
         Sync(self.config, client, logger=lambda *_: None).run()

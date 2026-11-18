@@ -269,10 +269,17 @@ class Sync:
         absolute = os.path.join(self.config.vault_path, path)
         if os.path.exists(absolute):
             existing = notes.read_note(self.config.vault_path, path)
+            if existing is None:
+                # iCloud sometimes refuses a read; try once more before deciding.
+                existing = notes.read_note(self.config.vault_path, path)
             owner = notes.read_frontmatter_id(existing) if existing else None
-            if owner is not None and owner != bookmark.get("id"):
+            if owner != bookmark.get("id"):
+                # An unreadable file has an unknown owner. Never overwrite a note
+                # we cannot prove is ours: a suffixed file is a harmless
+                # duplicate, a clobbered note is lost data.
                 stem, extension = os.path.splitext(path)
                 path = f"{stem} ({bookmark.get('id')}){extension}"
+                self.log(f"    path in use by another note, writing {os.path.basename(path)}")
         return path
 
     def write(self, bookmark, path, text):
