@@ -104,6 +104,16 @@ Instapaper itself missed. `verify` closes that gap: it samples notes, loads the
 original URLs in a real browser (Playwright/Chromium), and measures how much of
 each stored body actually appears on the page.
 
+`verify` is the only command that needs a browser, so it is the only one with an
+install step. Playwright ships its own Chromium build, pinned to the package
+version, and it fails with `Executable doesn't exist at .../chromium-<build>`
+when the package and the downloaded build have drifted apart — keep both in step:
+
+```bash
+python3 -m pip install -U playwright
+python3 -m playwright install chromium
+```
+
 ```bash
 python3 -m instapaper_sync verify --sample 100 --out verify.json
 ```
